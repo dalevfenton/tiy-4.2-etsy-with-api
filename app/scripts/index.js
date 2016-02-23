@@ -1,1 +1,2 @@
-console.log("Hello World!");
+var Handlebars = require('handlebars');
+var $ = require('jquery');
