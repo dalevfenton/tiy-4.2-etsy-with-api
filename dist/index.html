@@ -34,8 +34,20 @@
       </div>
     </div>
 <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
-                        <!-- HANDLEBARS TEMPLATES -->
+                      <!-- HANDLEBARS TEMPLATES START -->
 <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+<!-- handlebars category bar template -->
+<script id="category-template" type="text/x-handlebars-template">
+  <ul>
+    {{#maincats results}}
+    <a href="http://www.etsy.com/c/{{category_name}}" alt="{{long_name}}"><li class="cat-item">{{short_name}}</li></a>
+    {{/maincats}}
+  </ul>
+</script>
+<!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+                    <!-- HANDLEBARS TEMPLATES END -->
+<!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
+
     <script src="js/bundle.js"></script>
 
   </body>
