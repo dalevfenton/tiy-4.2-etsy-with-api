@@ -101,10 +101,30 @@
             </div>
           </div>
           <div class="page-content float-right">
-            <h3 class="top-cats-title"></h3>
-            <div id="top-cats">
+            <h3 class="top-cats-title">Top categories for {{search-term}}</h3>
+            <div id="top-cats" class="page-content-box">
+              
             </div>
-            <div id="results-gallery"></div>
+            <div id="results-gallery" class="page-content-box">
+                <div class="results-top-info">
+                  <div class="results-cat-path"><a href="#">All Categories</a><span> &gt; </span><span>&ldquo;{{search-term}}&rdquo; 	&#40;{{num-results}}	Results&#41;</span></div>
+                  <div class="results-sort-by">
+                    <span>Sort by:</span>
+                    <button type="button" class="sort-by-dropdown">Relevancy</button>
+                    <ul class="sort-by-dd-options">
+                      <li>Most Recent</li>
+                      <li>Relevancy</li>
+                      <li>Highest Price</li>
+                      <li>Lowest Price</li>
+                    </ul>
+                  </div>
+                </div>
+                <div id="results-grid">
+                  <ul>
+                  </ul>
+                </div>
+              </div>
+            </div>
             <div class="pagination-bottom"></div>
           </div>
         </div>
@@ -121,7 +141,6 @@
           </div>
         </div>
       </div>
-    </div>
 <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
                       <!-- HANDLEBARS TEMPLATES START -->
 <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
@@ -139,7 +158,35 @@
     {{/each}}
   </ul>
 </script>
-
+<script id="top-cat-template" type="text/x-handlebars-template">
+  {{#each categories}}
+  <div class="top-cat-box img-box-outer {{width-class}}">
+    <div class="img-bg-holder">
+      <img src="{{cat-image}}" alt="" />
+    </div>
+    <div class="img-box-info">
+      <h3 class="img-box-title">{{title}}</h3>
+      <div class="img-box-item-count">{{num-items}} Items</div>
+    </div>
+  </div>
+  {{/each}}
+</script>
+<script id="result-template" type="text/x-handlebars-template">
+  {{#each results}}
+  <li class="result">
+    <div class="result-img-holder">
+      <a href="{{url}}"><img src="{{MainImage.url_570xN}}" alt=""></a>
+    </div>
+    <div class="result-info">
+      <div class="result-meta">
+        <div class="result-title">{{{title}}}</div>
+        <div class="result-seller"><a href="{{Shop.url}}">{{Shop.shop_name}}</a></div>
+        <div class="result-price">${{price}}</div>
+      </div>
+    </div>
+  </li>
+  {{/each}}
+</script>
 <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
                     <!-- HANDLEBARS TEMPLATES END -->
 <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->

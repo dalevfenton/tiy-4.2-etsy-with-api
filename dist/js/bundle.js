@@ -12,14 +12,15 @@ var categoryMethod = 'taxonomy/categories.js';
 var listings = 'https://openapi.etsy.com/v2/listings/active.js?api_key='+key;
 var toplevelcats = 'https://openapi.etsy.com/v2/taxonomy/categories.js?api_key='+key;
 var searchObj = { keywords: 'whiskey',
-                  limit: '12'};
+                  limit: '24',
+                  includes: 'Images,Shop,MainImage'};
 var searchMethod = 'listings/active.js';
 function etsyCall( methodUrl, argsObj){
   var etsyURL = url + methodUrl + '?api_key=' + key;
-  console.log(argsObj);
+  // console.log(argsObj);
   if(argsObj !== undefined){
     $.each(argsObj, function(prop, value){
-      console.log(prop, value);
+      // console.log(prop, value);
       etsyURL += '&' + prop + '=' + value;
     });
   }
@@ -44,8 +45,8 @@ function etsyCall( methodUrl, argsObj){
 var topCats = etsyCall( categoryMethod);
 var searchedObjs = etsyCall( searchMethod, searchObj );
 function handleCategory(data, method){
-  console.log(data);
-  console.log(method);
+  // console.log(data);
+  // console.log(method);
   switch (method) {
     case categoryMethod:
       console.log('category method was called');
@@ -60,25 +61,60 @@ function handleCategory(data, method){
       var searchResult = data.results;
       var catArr = [];
       $.each(searchResult, function(){
-        catArr.push(this.taxonomy_path[0]);
+        //trim title value for screen display but save fulllength
+        if(this.title.length > 30){
+          this.full_title = this.title;
+          this.title = this.title.slice(0, 29) + '...';
+        }
+        catArr.push({ 'title':this.taxonomy_path[0], 'cat-image':this.MainImage.url_570xN, 'num-items':_.random(5000, 100000) });
       });
+      // console.log(catArr);
       var catObj = {};
       $.each(catArr, function(){
-        if(catObj.hasOwnProperty(this)){
-          catObj[this] += 1;
+        if(catObj.hasOwnProperty(this.title)){
+          catObj[this.title].counter += 1;
         }else{
-          catObj[this] = 1;
+          catObj[this.title] = this;
+          catObj[this.title].counter = 1;
         }
       });
+      var objArr = [];
+      $.each(catObj, function(){
+        objArr.push(this);
+      });
+      var sortedArr = _.sortBy(objArr, 'counter').reverse();
       var context = [];
-      $.each(catObj, function(prop, value){
-        context.push({title:prop, count:value});
+      $.each(sortedArr, function(index){
+        console.log(index);
+        var tempObj = {'title':this.title, 'count':this.counter, 'cat-image':this['cat-image'], 'num-items':this['num-items']  };
+        if(index< 2){
+          if(index === 1){
+            tempObj['width-class'] = 'half';
+          }else{
+            tempObj['width-class'] = 'half last';
+          }
+        }else if(index < 5){
+          if(index === 4){
+            tempObj['width-class'] = 'third last';
+          }else{
+            tempObj['width-class'] = 'third';
+          }
+        }
+        context.push(tempObj);
       });
       console.log(context);
       var source = $('#sidebar-template').html();
       var template = Handlebars.compile(source);
       var html = template({'categories': context});
       $('#sidebar-cats').html(html);
+      source = $('#top-cat-template').html();
+      template = Handlebars.compile(source);
+      html = template({'categories': context.slice(0,5)});
+      $('#top-cats').html(html);
+      source = $('#result-template').html();
+      template = Handlebars.compile(source);
+      html = template({results: searchResult});
+      $('#results-grid ul').html(html);
       break;
   }
 }
