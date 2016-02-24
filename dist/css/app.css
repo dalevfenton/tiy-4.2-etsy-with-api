@@ -2099,4 +2099,48 @@ img {
   .top-nav:not(:last-of-type) {
     border-right: 1px solid #eeeeee; }
 
+.categories {
+  text-align: center;
+  padding-top: 10px; }
+
+.cat-item {
+  display: inline-block;
+  margin-right: 10px;
+  line-height: 29px; }
+  .cat-item a {
+    text-decoration: none;
+    color: #88888b; }
+  .cat-item:hover {
+    border-bottom: 3px solid #f86600; }
+    .cat-item:hover a {
+      color: #232323; }
+
+.page-info {
+  margin-top: 30px; }
+
+.sidebar {
+  width: 25%; }
+
+.sidebar-outside {
+  display: block;
+  margin-bottom: 10px; }
+
+.sidebar-box {
+  padding: 10px;
+  background: white;
+  border: 1px solid #dfdfdf;
+  border-radius: 5px;
+  margin-bottom: 10px; }
+
+.sidebar-cat-link {
+  margin-left: 10px; }
+
+.page-content {
+  width: 70%;
+  height: 500px;
+  margin-left: 5%; }
+
+.footer {
+  clear: both; }
+
 /*# sourceMappingURL=app.css.map */

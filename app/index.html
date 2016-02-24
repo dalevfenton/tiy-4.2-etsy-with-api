@@ -32,18 +32,56 @@
 
         </div>
       </div>
+      <div class="page-info">
+        <div class="inside">
+          <div class="sidebar float-left">
+            <span class="sidebar-outside">Show results for:</span>
+            <div id="sidebar-cats" class="sidebar-box">
+
+            </div>
+            <span class="sidebar-outside">Refine your search:</span>
+            <div id="sidebar-search" class="sidebar-box"></div>
+          </div>
+          <div class="page-content float-right">
+            <h3 class="top-cats-title"></h3>
+            <div id="top-cats">
+            </div>
+            <div id="results-gallery"></div>
+            <div class="pagination-bottom"></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="inside">
+          <div class="subscribe-box"></div>
+          <div class="bottom-links">
+            <div class="links-col">Turn Your Passion Into A Business</div>
+            <div class="links-col">Join the community</div>
+            <div class="links-col">Discover and Shop</div>
+            <div class="links-col">Get to Know Us</div>
+            <div class="links-col">Follow Etsy</div>
+          </div>
+        </div>
+      </div>
     </div>
 <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
                       <!-- HANDLEBARS TEMPLATES START -->
 <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
 <!-- handlebars category bar template -->
 <script id="category-template" type="text/x-handlebars-template">
-  <ul>
     {{#maincats results}}
-    <a href="http://www.etsy.com/c/{{category_name}}" alt="{{long_name}}"><li class="cat-item">{{short_name}}</li></a>
+    <!-- <a class="nav-link" href="http://www.etsy.com/c/{{category_name}}" alt="{{long_name}}"><li class="cat-item">{{short_name}}</li></a> -->
     {{/maincats}}
+</script>
+<script id="sidebar-template" type="text/x-handlebars-template">
+  <span class="sidebar-inside">All Categories</span>
+  <ul>
+    {{#each categories}}
+    <li class="sidebar-cat-link"><a href="http://www.etsy.com" alt="">{{title}} : {{count}}</a></li>
+    {{/each}}
   </ul>
 </script>
+
 <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
                     <!-- HANDLEBARS TEMPLATES END -->
 <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
