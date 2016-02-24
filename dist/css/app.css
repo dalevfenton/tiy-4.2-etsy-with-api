@@ -18,7 +18,9 @@ a {
     text-decoration: underline; }
 
 body {
-  font-family: sans-serif; }
+  font-family: sans-serif;
+  font-size: 80%;
+  margin: 0; }
 
 input, button, select {
   border: 1px solid #c8c8c8;
@@ -34,14 +36,14 @@ input[type=radio], input[type=checkbox] {
 input[type="radio"] + label, input[type=checkbox] + label {
   display: block;
   position: relative;
-  padding-left: 30px;
-  margin-bottom: 8px; }
+  padding-left: 23px;
+  margin-bottom: 9px; }
 
 input[type="radio"] + label:before, input[type="checkbox"] + label:before {
   position: absolute;
   content: '';
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   border: 1px solid #c8c8c8;
   border-radius: 10px;
   left: 0px; }
@@ -56,8 +58,8 @@ input[type="radio"]:checked + label:after {
   height: 10px;
   border-radius: 5px;
   background: #1caddf;
-  left: 5px;
-  top: 5px; }
+  left: 4px;
+  top: 4px; }
 
 input[type="checkbox"]:checked + label:after {
   border-radius: 3px;
@@ -85,7 +87,7 @@ select option {
     content: '';
     position: absolute;
     border-style: solid;
-    border-width: 6px 6px 0 6px;
+    border-width: 4px 4px 0 4px;
     border-color: #c8c8c8 transparent transparent transparent;
     right: 10px;
     top: 15px;
@@ -100,7 +102,6 @@ select option {
 .container {
   width: 100%;
   background: #f5f5f1;
-  height: 1000px;
   padding: 0; }
 
 .header {
@@ -124,7 +125,7 @@ select option {
   float: left; }
 
 .logo-search {
-  padding-top: 16px; }
+  padding-top: 24px; }
 
 .top-nav-profile {
   padding-top: 10px; }
@@ -149,30 +150,50 @@ select option {
   background: #09a8c4;
   color: white;
   font-weight: bold;
-  padding: 9px 15px;
+  padding: 10px 15px;
   margin: 0;
-  width: 20%;
-  font-size: 80%; }
+  width: 20%; }
 
 #top-nav-ul {
   text-align: right;
-  font-size: 12px; }
+  font-size: 12px;
+  padding-right: 6px; }
 
 .top-nav {
   display: inline-block;
-  padding: 30px 10px 0 10px;
+  text-align: center;
+  padding: 30px 15px 0 15px;
   color: #666666; }
   .top-nav:not(:last-of-type) {
     border-right: 1px solid #c8c8c8; }
 
+.sell-on-etsy {
+  font-size: 120%;
+  padding: 14px 8px 14px 0;
+  text-align: right;
+  vertical-align: top; }
+
+.with-icon {
+  position: relative; }
+  .with-icon::before {
+    position: absolute;
+    content: '';
+    width: 16px;
+    height: 16px;
+    top: 0;
+    left: 50%;
+    margin-left: -8px;
+    background: #666666; }
+
 .categories {
-  text-align: center;
-  padding-top: 10px; }
+  text-align: left;
+  padding-top: 7px; }
 
 .cat-item {
   display: inline-block;
-  margin-right: 10px;
-  line-height: 29px; }
+  margin-right: 23px;
+  line-height: 29px;
+  font-size: 120%; }
   .cat-item a {
     text-decoration: none;
     color: #88888b; }
@@ -187,38 +208,46 @@ select option {
 .sidebar {
   width: 25%; }
 
-.sidebar-outside {
-  display: block;
+.sidebar-outside, .sidebar-box-area-title {
+  font-weight: bold;
+  color: #555555; }
+
+.sidebar-box-area-title {
   margin-bottom: 10px; }
 
+.sidebar-outside {
+  display: block;
+  margin-bottom: 12px; }
+
 .sidebar-box {
-  padding: 10px;
+  padding: 12px;
   background: white;
   border: 1px solid #c8c8c8;
   border-radius: 5px;
-  margin-bottom: 10px; }
+  margin-bottom: 25px; }
 
 .sidebar-cat-link {
   margin-left: 10px;
-  margin-bottom: 8px;
+  margin-bottom: 9px;
   color: #1caddf; }
 
 .sidebar-box-area {
   border-bottom: 1px solid #c8c8c8;
-  padding: 10px 0; }
+  padding-bottom: 18px;
+  margin-bottom: 18px; }
   .sidebar-box-area:last-of-type {
     border-bottom: none; }
 
-.sidebar-outside, .sidebar-box-area-title {
-  font-weight: bold;
-  color: #555555;
-  margin-bottom: 8px; }
-
 .sort-text-input {
-  width: 30%;
+  width: 33%;
   height: 40px;
+  font-size: 115%;
   border-radius: 5px;
   padding-left: 10px; }
+
+.sort-text-span {
+  margin-left: 3px;
+  margin-right: 5px; }
 
 .send-button {
   vertical-align: bottom;
@@ -238,15 +267,13 @@ select option {
 
 .color-box {
   display: inline-block;
-  width: 8%;
-  padding-bottom: 8%;
+  width: 10%;
+  padding-bottom: 9%;
   border-radius: 3px;
   border: 1px solid #c8c8c8;
   content: '';
   cursor: pointer;
   background-color: attr(value); }
-  .color-box:not(:last-of-type) {
-    margin-right: 2%; }
 
 .page-content {
   width: 70%;

@@ -28,6 +28,8 @@ a{
 }
 body{
   font-family: sans-serif;
+  font-size: 80%;
+  margin: 0;
 }
 input, button, select{
   border: 1px solid $border-lt-gray;
@@ -46,14 +48,14 @@ input[type=radio], input[type=checkbox]{
 input[type="radio"] + label, input[type=checkbox] + label{
   display: block;
   position: relative;
-  padding-left: 30px;
-  margin-bottom: 8px;
+  padding-left: 23px;
+  margin-bottom: 9px;
 }
 input[type="radio"] + label:before, input[type="checkbox"] + label:before{
  position: absolute;
  content: '';
- width: 20px;
- height: 20px;
+ width: 18px;
+ height: 18px;
  border: 1px solid $border-lt-gray;
  border-radius: 10px;
  left: 0px;
@@ -68,8 +70,8 @@ input[type="radio"]:checked + label:after{
  height: 10px;
  border-radius: 5px;
  background: rgba(28, 173, 223, 1);
- left: 5px;
- top: 5px;
+ left: 4px;
+ top: 4px;
 }
 input[type="checkbox"]:checked + label:after{
   border-radius: 3px;
@@ -97,7 +99,7 @@ select option {
     content: '';
     position: absolute;
     border-style: solid;
-    border-width: 6px 6px 0 6px;
+    border-width: 4px 4px 0 4px;
     border-color: $border-lt-gray transparent transparent transparent;
     right: 10px;
     top: 15px;
@@ -113,7 +115,7 @@ select option {
 .container{
   width: 100%;
   background: rgba(245, 245, 241, 1);
-  height: 1000px;
+  // height: 1000px;
   padding: 0;
 }
 .header{
@@ -137,7 +139,7 @@ select option {
   float: left;
 }
 .logo-search{
-  padding-top: 16px;
+  padding-top: 24px;
 }
 .top-nav-profile{
   padding-top: 10px;
@@ -162,31 +164,52 @@ select option {
   background: rgba(9, 168, 196, 1);
   color: white;
   font-weight: bold;
-  padding: 9px 15px;
+  padding: 10px 15px;
   margin:0;
   width: 20%;
-  font-size: 80%;
 }
 #top-nav-ul{
   text-align: right;
   font-size: 12px;
+  padding-right: 6px;
 }
 .top-nav{
   display: inline-block;
-  padding: 30px 10px 0 10px;
+  text-align: center;
+  padding: 30px 15px 0 15px;
   color: rgba(102, 102, 102, 1);
   &:not(:last-of-type){
     border-right: 1px solid $border-lt-gray;
   }
 }
+.sell-on-etsy{
+  font-size: 120%;
+  padding: 14px 8px 14px 0;
+  text-align: right;
+  vertical-align: top;
+}
+.with-icon{
+  position: relative;
+  &::before{
+    position: absolute;
+    content: '';
+    width: 16px;
+    height: 16px;
+    top: 0;
+    left: 50%;
+    margin-left: -8px;
+    background: rgba(102, 102, 102, 1);
+  }
+}
 .categories{
-  text-align: center;
-  padding-top: 10px;
+  text-align: left;;
+  padding-top: 7px;
 }
 .cat-item{
   display: inline-block;
-  margin-right: 10px;
+  margin-right: 23px;
   line-height: 29px;
+  font-size: 120%;
   a{
     text-decoration: none;
     color: rgba(136, 136, 139, 1);
@@ -204,39 +227,48 @@ select option {
 .sidebar{
   width: 25%;
 }
+.sidebar-outside, .sidebar-box-area-title{
+  font-weight: bold;
+  color: rgba(85, 85, 85, 1);
+}
+.sidebar-box-area-title{
+    margin-bottom: 10px;
+}
 .sidebar-outside{
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 .sidebar-box{
-  padding: 10px;
+  padding: 12px;
   background: white;
   border: 1px solid $border-lt-gray;
   border-radius: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 .sidebar-cat-link{
   margin-left: 10px;
-  margin-bottom: 8px;
+  margin-bottom: 9px;
   color: rgba(28, 173, 223, 1);
 }
 .sidebar-box-area{
   border-bottom: 1px solid $border-lt-gray;
-  padding: 10px 0;
+  padding-bottom: 18px;
+  margin-bottom: 18px;
   &:last-of-type{
     border-bottom: none;
   }
 }
-.sidebar-outside, .sidebar-box-area-title{
-  font-weight: bold;
-  color: rgba(85, 85, 85, 1);
-  margin-bottom: 8px;
-}
+
 .sort-text-input{
-  width: 30%;
+  width: 33%;
   height: 40px;
+  font-size: 115%;
   border-radius: 5px;
   padding-left: 10px;
+}
+.sort-text-span{
+  margin-left: 3px;
+  margin-right: 5px;
 }
 .send-button{
   vertical-align: bottom;
@@ -257,15 +289,15 @@ select option {
 }
 .color-box{
   display: inline-block;
-  width: 8%;
-  padding-bottom: 8%;
+  width: 10%;
+  padding-bottom: 9%;
   border-radius: 3px;
   border: 1px solid $border-lt-gray;
   content: '';
   cursor: pointer;
   background-color: attr(value);
   &:not(:last-of-type){
-    margin-right: 2%;
+    // margin-right: 2%;
   }
 
 }
