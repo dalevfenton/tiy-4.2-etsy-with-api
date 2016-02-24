@@ -31,7 +31,7 @@ function etsyCall( methodUrl, argsObj){
     success: function(data){
       if(data.ok){
         handleCategory(data, methodUrl);
-    }else{
+      }else{
       console.log(data.error);
       console.log(data);
     }

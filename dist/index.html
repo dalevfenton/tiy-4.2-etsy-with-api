@@ -5,19 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
     <title>tiy 4 2 etsy with api</title>
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
   <body>
 
     <div class="container">
       <div class="header">
         <div class="inside">
-          <div class="header-info float-left">
+          <div class="header-info logo-search">
             <img src="images/etsylogo.png" alt="" />
-            <input id="search-top" type="text" name="search-top" value="">
-            <button id="search-button">Search</button>
+            <form id="form-search-top">
+              <input id="search-top" type="text" name="search-top" value="">
+              <button id="search-button">Search</button>
+            </form>
           </div>
-          <div class="header-info float-right">
-            <ul>
+          <div class="header-info top-nav-profile">
+            <ul id="top-nav-ul">
               <li class="top-nav"><a href="https://www.etsy.com/sell">Sell on Etsy</a></li>
               <li id="Home" class="top-nav with-icon">Home</li>
               <li id="Favorites" class="top-nav with-icon">Favorites</li>
@@ -40,7 +43,62 @@
 
             </div>
             <span class="sidebar-outside">Refine your search:</span>
-            <div id="sidebar-search" class="sidebar-box"></div>
+            <div id="sidebar-search" class="sidebar-box">
+              <div class="sidebar-box-area">
+                <div class="sidebar-box-area-title">Item Type</div>
+                <form id="item-type" class="item-type-radio">
+                  <input type="radio" name="item-type-radio" id="item-type-rd1" checked="true">
+                  <label for="item-type-rd1"><a href="#">All Items</a></label>
+                  <input type="radio" name="item-type-radio" id="item-type-rd2">
+                  <label for="item-type-rd2"><a href="#">Handmade</a></label>
+                </form>
+              </div>
+              <div class="sidebar-box-area">
+                <div class="sidebar-box-area-title">Price (&dollar;)</div>
+                <input type="text" placeholder="Low" id="low-price-sort" class="sort-text-input">
+                <span class="sort-text-span">to</span>
+                <input type="text" placeholder="High" id="high-price-sort" class="sort-text-input">
+                <button type="button" class="send-button"></button>
+              </div>
+              <div class="sidebar-box-area">
+                <div class="sidebar-box-area-title">Filter By Color</div>
+                <div class="color-box red" value="red"></div>
+                <div class="color-box orange" value="orange"></div>
+                <div class="color-box yellow" value="yellow"></div>
+                <div class="color-box green" value="green"></div>
+                <div class="color-box blue" value="blue"></div>
+                <div class="color-box purple" value="purple"></div>
+                <div class="color-box black" value="black"></div>
+                <div class="color-box white" value="white"></div>
+              </div>
+              <div class="sidebar-box-area">
+                <div class="sidebar-box-area-title">Ordering Options</div>
+                <form id="ordering-options" class="ordering-options-check">
+                  <input type="checkbox" id="ordering-options-ch1" value="favorites">
+                  <label for="ordering-options-ch1"><a href="#">In Your Favorites</a></label>
+                  <input type="checkbox" id="ordering-options-ch2" value="customizable">
+                  <label for="ordering-options-ch2"><a href="#">United States</a></label>
+                </form>
+              </div>
+              <div class="sidebar-box-area">
+                <div class="sidebar-box-area-title">Shop Location</div>
+                <form class="shop-location-radio">
+                  <input type="radio" name="shop-loc-radio" id="anywhere" checked="true">
+                  <label for="anywhere">Anywhere</label>
+                  <input type="radio" name="shop-loc-radio" id="us">
+                  <label for="us">United States</label>
+                </form>
+                <a href="#">Choose a custom location</a>
+              </div>
+              <div class="sidebar-box-area">
+                <div class="sidebar-box-area-title">Ship To</div>
+                <div class="dropdown-arrow"></div>
+                <select class="dropdown" name="ship-to">
+                  <option value="anywhere">Anywhere</option>
+                  <option value="us">United States</option>
+                </select>
+              </div>
+            </div>
           </div>
           <div class="page-content float-right">
             <h3 class="top-cats-title"></h3>
@@ -74,7 +132,7 @@
     {{/maincats}}
 </script>
 <script id="sidebar-template" type="text/x-handlebars-template">
-  <span class="sidebar-inside">All Categories</span>
+  <div class="sidebar-box-area-title">All Categories</div>
   <ul>
     {{#each categories}}
     <li class="sidebar-cat-link"><a href="http://www.etsy.com" alt="">{{title}} : {{count}}</a></li>

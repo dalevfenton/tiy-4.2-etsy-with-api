@@ -1,11 +1,11 @@
 
-// Bootstrap Variables
-$icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
+// // Bootstrap Variables
+// $icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
+//
+// // Import Bootstrap
+// @import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 
-// Import Bootstrap
-@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
-
-
+$border-lt-gray: rgb(200, 200, 200);
 *,
 *::before,
 *::after {
@@ -18,6 +18,91 @@ ul{
 }
 img {
   max-width: 100%;
+}
+a{
+  color: rgba(28, 173, 223, 1);
+  text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+body{
+  font-family: sans-serif;
+}
+input, button, select{
+  border: 1px solid $border-lt-gray;
+  margin: none;
+  padding: none;
+}
+input:focus, button:focus, select:focus{
+  outline: none;
+}
+input[type=checkbox]{
+
+}
+input[type=radio], input[type=checkbox]{
+  display: none;
+}
+input[type="radio"] + label, input[type=checkbox] + label{
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 8px;
+}
+input[type="radio"] + label:before, input[type="checkbox"] + label:before{
+ position: absolute;
+ content: '';
+ width: 20px;
+ height: 20px;
+ border: 1px solid $border-lt-gray;
+ border-radius: 10px;
+ left: 0px;
+}
+input[type="checkbox"] + label:before{
+  border-radius: 3px;
+}
+input[type="radio"]:checked + label:after{
+ position: absolute;
+ content: '';
+ width: 10px;
+ height: 10px;
+ border-radius: 5px;
+ background: rgba(28, 173, 223, 1);
+ left: 5px;
+ top: 5px;
+}
+input[type="checkbox"]:checked + label:after{
+  border-radius: 3px;
+  font-family: FontAwesome;
+  content: '\f00c';
+  color: rgba(28, 173, 223, 1);
+  position: absolute;
+  left: 3px;
+  top: 2px;
+}
+select{
+  width: 100%;
+  height: 40px;
+  padding-left: 15px;
+  -webkit-appearance: none;
+  position: relative;
+}
+select option {
+  border: 1px solid #000;
+  background: #010;
+}
+.dropdown-arrow{
+  position: relative;
+  &:after{
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 6px 6px 0 6px;
+    border-color: $border-lt-gray transparent transparent transparent;
+    right: 10px;
+    top: 15px;
+    z-index: 10;
+  }
 }
 .float-left{
   float:left;
@@ -34,12 +119,12 @@ img {
 .header{
   background: white;
   height: 80px;
-  border-bottom: 1px solid rgba(225, 225, 225, 1);
+  border-bottom: 1px solid $border-lt-gray;
 }
 .categories{
   background: white;
   height: 43px;
-  border-bottom: 1px solid rgba(225, 225, 225, 1);
+  border-bottom: 1px solid $border-lt-gray;
   box-shadow: 0 1px 1px 0 rgba(0,0,0, .1);
 }
 .inside{
@@ -48,27 +133,50 @@ img {
   margin: 0 auto;
 }
 .header-info{
-  margin-top: 25px;
+  width: 50%;
+  float: left;
+}
+.logo-search{
+  padding-top: 16px;
+}
+.top-nav-profile{
+  padding-top: 10px;
+}
+#form-search-top{
+  clear: both;
+  display: inline-block;
+  width: 80%;
 }
 #search-top{
-  margin: 0 0 0 20px;
-  line-height: 25px;
+  float: left;
+  margin: 0 0 3px 17px;
+  line-height: 29px;
   border-radius: 3px 0 0 3px;
+  border: 1px 0 1px 1px;
+  width: 65%;
 }
 #search-button{
+  float: left;
   border-radius: 0 3px 3px 0;
+  border: none;
   background: rgba(9, 168, 196, 1);
   color: white;
   font-weight: bold;
-  padding: 6px 15px;
+  padding: 9px 15px;
   margin:0;
+  width: 20%;
+  font-size: 80%;
+}
+#top-nav-ul{
+  text-align: right;
+  font-size: 12px;
 }
 .top-nav{
   display: inline-block;
   padding: 30px 10px 0 10px;
   color: rgba(102, 102, 102, 1);
   &:not(:last-of-type){
-    border-right: 1px solid rgba(238, 238, 238, 1);
+    border-right: 1px solid $border-lt-gray;
   }
 }
 .categories{
@@ -103,12 +211,63 @@ img {
 .sidebar-box{
   padding: 10px;
   background: white;
-  border: 1px solid rgba(223, 223, 223, 1);
+  border: 1px solid $border-lt-gray;
   border-radius: 5px;
   margin-bottom: 10px;
 }
 .sidebar-cat-link{
   margin-left: 10px;
+  margin-bottom: 8px;
+  color: rgba(28, 173, 223, 1);
+}
+.sidebar-box-area{
+  border-bottom: 1px solid $border-lt-gray;
+  padding: 10px 0;
+  &:last-of-type{
+    border-bottom: none;
+  }
+}
+.sidebar-outside, .sidebar-box-area-title{
+  font-weight: bold;
+  color: rgba(85, 85, 85, 1);
+  margin-bottom: 8px;
+}
+.sort-text-input{
+  width: 30%;
+  height: 40px;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+.send-button{
+  vertical-align: bottom;
+  background: white;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  &:after{
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 6px 0 6px 10px;
+    border-color: transparent transparent transparent rgba(85, 85, 85, 1);
+    top: 14px;
+    left: 14px;
+  }
+}
+.color-box{
+  display: inline-block;
+  width: 8%;
+  padding-bottom: 8%;
+  border-radius: 3px;
+  border: 1px solid $border-lt-gray;
+  content: '';
+  cursor: pointer;
+  background-color: attr(value);
+  &:not(:last-of-type){
+    margin-right: 2%;
+  }
+
 }
 .page-content{
   width: 70%;
