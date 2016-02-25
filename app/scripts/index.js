@@ -56,17 +56,43 @@ function handleCategory(data, method){
       break;
     case searchMethod:
       console.log('search method was called');
+      console.log(data);
       var searchResult = data.results;
       var catArr = [];
+      var tagArr = [];
       $.each(searchResult, function(){
         //trim title value for screen display but save fulllength
-        if(this.title.length > 30){
-          this.full_title = this.title;
-          this.title = this.title.slice(0, 29) + '...';
+        if( !this.hasOwnProperty('error_messages')){
+          if(this.title.length > 28){
+            this.full_title = this.title;
+            this.title = this.title.slice(0, 26) + '...';
+          }
+          //build an array of objects to use for category areas
+          if( this.taxonomy_path !== null ){
+            catArr.push({ 'title':this.taxonomy_path[0], 'cat-image':this.MainImage.url_570xN, 'num-items':_.random(5000, 100000) });
+          }else{
+            catArr.push({ 'title':this.category_path[0], 'cat-image':this.MainImage.url_570xN, 'num-items':_.random(5000, 100000) });
+          }
+          //build an array of tag objects
+          $.each(this.tags, function(){
+            tagArr.push(this);
+          });
         }
-        catArr.push({ 'title':this.taxonomy_path[0], 'cat-image':this.MainImage.url_570xN, 'num-items':_.random(5000, 100000) });
       });
-      // console.log(catArr);
+      var counts = _.countBy(tagArr, _.identity);
+      tagArr = [];
+      $.each(counts, function(index, value){
+        tagArr.push({'title':index, 'count':value, 'urlStr': index.replace(' ', '+')});
+      });
+      tagArr = _.sortBy(tagArr, 'count').reverse();
+      tagArr = _.filter(tagArr, function(thing){
+        if(thing.count > 1){
+          return true;
+        }else{
+          return false;
+        }
+      });
+
       var catObj = {};
       $.each(catArr, function(){
         if(catObj.hasOwnProperty(this.title)){
@@ -83,7 +109,6 @@ function handleCategory(data, method){
       var sortedArr = _.sortBy(objArr, 'counter').reverse();
       var context = [];
       $.each(sortedArr, function(index){
-        console.log(index);
         var tempObj = {'title':this.title, 'count':this.counter, 'cat-image':this['cat-image'], 'num-items':this['num-items']  };
         if(index< 2){
           if(index === 1){
@@ -100,19 +125,32 @@ function handleCategory(data, method){
         }
         context.push(tempObj);
       });
-      console.log(context);
+      //insert categories into sidebar
       var source = $('#sidebar-template').html();
       var template = Handlebars.compile(source);
       var html = template({'categories': context});
       $('#sidebar-cats').html(html);
+      //insert main category panels at top of content area
       source = $('#top-cat-template').html();
       template = Handlebars.compile(source);
       html = template({'categories': context.slice(0,5)});
       $('#top-cats').html(html);
+      //add listings to the page from api query
       source = $('#result-template').html();
       template = Handlebars.compile(source);
       html = template({results: searchResult});
       $('#results-grid ul').html(html);
+      //replace {{seach-term placeholders}}
+      $('.top-cats-title').html('Top categories for ' + data.params.keywords);
+      var catPath = $('.results-cat-path-replace').html().replace('{{search-term}}',data.params.keywords).replace('{{num-results}}', data.count);
+      $('.results-cat-path-replace').html(catPath);
+      $('.related-search-term').html(data.params.keywords);
+      //do related terms template
+      source = $('#related-terms-template').html();
+      template = Handlebars.compile(source);
+      console.log(tagArr);
+      html = template({relatedObj: tagArr});
+      $('.related ul').html(html);
       break;
   }
 }

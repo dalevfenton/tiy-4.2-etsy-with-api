@@ -37,7 +37,7 @@
       </div>
       <div class="page-info">
         <div class="inside">
-          <div class="sidebar float-left">
+          <div class="sidebar">
             <span class="sidebar-outside">Show results for:</span>
             <div id="sidebar-cats" class="sidebar-box">
 
@@ -100,14 +100,14 @@
               </div>
             </div>
           </div>
-          <div class="page-content float-right">
+          <div class="page-content">
             <h3 class="top-cats-title">Top categories for {{search-term}}</h3>
             <div id="top-cats" class="page-content-box">
-              
+
             </div>
             <div id="results-gallery" class="page-content-box">
                 <div class="results-top-info">
-                  <div class="results-cat-path"><a href="#">All Categories</a><span> &gt; </span><span>&ldquo;{{search-term}}&rdquo; 	&#40;{{num-results}}	Results&#41;</span></div>
+                  <div class="results-cat-path"><a href="#">All Categories</a><span> &gt; </span><span class="results-cat-path-replace">&ldquo;{{search-term}}&rdquo; 	&#40;{{num-results}}	Results&#41;</span></div>
                   <div class="results-sort-by">
                     <span>Sort by:</span>
                     <button type="button" class="sort-by-dropdown">Relevancy</button>
@@ -124,20 +124,107 @@
                   </ul>
                 </div>
               </div>
+              <div class="related">
+                <div class="sidebar-outside">Related to <span class="related-search-term">{{search-term}}</span></div>
+                <ul>
+                  <li class="related-item"><a href="{{related-url}}">{{related-name}}</a></li>
+                  <li class="related-item"><a href="{{related-url}}">{{related-name}}</a></li>
+                  <li class="related-item"><a href="{{related-url}}">{{related-name}}</a></li>
+                  <li class="related-item"><a href="{{related-url}}">{{related-name}}</a></li>
+                  <li class="related-item"><a href="{{related-url}}">{{related-name}}</a></li>
+                  <li class="related-item"><a href="{{related-url}}">{{related-name}}</a></li>
+                  <li class="related-item"><a href="{{related-url}}">{{related-name}}</a></li>
+                  <li class="related-item"><a href="{{related-url}}">{{related-name}}</a></li>
+                  <li class="related-item"><a href="{{related-url}}">{{related-name}}</a></li>
+                  <li class="related-item"><a href="{{related-url}}">{{related-name}}</a></li>
+                  <li class="related-item"><a href="{{related-url}}">{{related-name}}</a></li>
+                  <li class="related-item"><a href="{{related-url}}">{{related-name}}</a></li>
+                  <li class="related-item"><a href="{{related-url}}">{{related-name}}</a></li>
+                  <li class="related-item"><a href="{{related-url}}">{{related-name}}</a></li>
+                  <li class="related-item"><a href="{{related-url}}">{{related-name}}</a></li>
+                </ul>
+              </div>
+              <div class="pagination-bottom">
+                <ul>
+                  <a href="#"><li class="pagi-link pagi-prev-arrow"> </li></a>
+                  <a href="#"><li class="pagi-link">1</li></a>
+                  <a href="#"><li class="pagi-link">2</li></a>
+                  <a href="#"><li class="pagi-link">3</li></a>
+                  <a href="#"><li class="pagi-link">4</li></a>
+                  <a href="#"><li class="pagi-link">5</li></a>
+                  <a href="#"><li class="pagi-link">6</li></a>
+                  <a href="#"><li class="pagi-link">7</li></a>
+                  <a href="#"><li class="pagi-link">8</li></a>
+                  <a href="#"><li class="pagi-link">9</li></a>
+                  <a href="#"><li class="pagi-link">10</li></a>
+                  <a href="#"><li class="pagi-link pagi-ellipses">...</li></a>
+                  <a href="#"><li class="pagi-link">250</li></a>
+                  <a href="#"><li class="pagi-link pagi-next-arrow"> </li></a>
+                </ul>
+              </div>
             </div>
-            <div class="pagination-bottom"></div>
           </div>
         </div>
       </div>
       <div class="footer">
         <div class="inside">
-          <div class="subscribe-box"></div>
+          <div class="subscribe-box">
+            <div class="subscribe-cta">Get top trends and fresh editors' picks in your inbox with Etsy Finds</div>
+            <button type="button" class="subscribe-btn">Subscribe</button>
+          </div>
           <div class="bottom-links">
-            <div class="links-col">Turn Your Passion Into A Business</div>
-            <div class="links-col">Join the community</div>
-            <div class="links-col">Discover and Shop</div>
-            <div class="links-col">Get to Know Us</div>
-            <div class="links-col">Follow Etsy</div>
+            <div class="links-col">
+              <h3 class="bottom-title">Turn Your Passion Into A Business</h3>
+              <button type="button" class="shop-button">Open a shop</button>
+              <ul>
+                <li>Sell on Etsy</li>
+                <li><a href="#">Seller Handbook</a></li>
+                <li><a href="#">Etsy credit card reader</a></li>
+                <li><a href="#">Manufacturing</a></li>
+              </ul>
+            </div>
+            <div class="links-col">
+              <h3 class="bottom-title">Join the community</h3>
+              <ul>
+                <li><a href="#">Teams</a></li>
+                <li><a href="#">Forums</a></li>
+                <li><a href="#">Upcoming events</a></li>
+                <li><a href="#">Affiliates</a></li>
+              </ul>
+            </div>
+            <div class="links-col">
+              <h3 class="bottom-title">Discover and Shop</h3>
+              <ul>
+                <li><a href="#">Gift cards</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Tastemakers</a></li>
+                <li><a href="#">Mobile apps</a></li>
+                <li><a href="#">Gift registries</a></li>
+                <li><a href="#">Wholesale</a></li>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">Editors' Picks</a></li>
+              </ul>
+            </div>
+            <div class="links-col">
+              <h3 class="bottom-title">Get to Know Us</h3>
+              <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Policies</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Press</a></li>
+                <li><a href="#">Developers</a></li>
+                <li><a href="#">Investors</a></li>
+              </ul>
+            </div>
+            <div class="links-col">
+              <h3 class="bottom-title">Follow Etsy</h3>
+              <ul>
+                <li id="link-facebook"><a href="#">Facebook</a></li>
+                <li id="link-twitter"><a href="#">Twitter</a></li>
+                <li id="link-pinterest"><a href="#">Pinterest</a></li>
+                <li id="link-instagram"><a href="#">Instagram</a></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -175,7 +262,7 @@
   {{#each results}}
   <li class="result">
     <div class="result-img-holder">
-      <a href="{{url}}"><img src="{{MainImage.url_570xN}}" alt=""></a>
+        <a href="{{url}}"><img src="{{MainImage.url_570xN}}" alt=""></a>
     </div>
     <div class="result-info">
       <div class="result-meta">
@@ -185,6 +272,11 @@
       </div>
     </div>
   </li>
+  {{/each}}
+</script>
+<script id="related-terms-template" type="text/x-handlebars-template">
+  {{#each relatedObj}}
+  <li class="related-item"><a href="https://www.etsy.com/search?q={{urlStr}}&order=most_relevant&ref=related">{{title}}</a></li>
   {{/each}}
 </script>
 <!-- ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| -->
